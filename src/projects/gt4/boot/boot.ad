@@ -90,7 +90,7 @@ module PROJECT
 #ifdef GT4O_US_BETA
     function fillCarAndMoney()
     {
-        var list = nil;
+        /* var list = nil;
         if (main::menu::MSystem::GetProductCode().beginWith("SCES"))
         {
             if (!InitData.defined("car_carlist"))
@@ -116,7 +116,7 @@ module PROJECT
             main::game.setCarAvailable(car);
         }
 
-        main::game.incMoney(10000000);
+        main::game.incMoney(10000000); */
     }
 #endif
 

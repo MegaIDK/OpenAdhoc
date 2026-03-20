@@ -9,6 +9,7 @@
 //---------------------------------------------------------------------------------------
 // module
 //---------------------------------------------------------------------------------------
+#include "../share/archipelago.ad"
 
 module PROJECT::ROOT
 {
@@ -36,6 +37,7 @@ module PROJECT::ROOT
         setFadeActor(Buttons::Option::imagef);
         setFadeActor(Buttons::Trade::imagef);
         setFadeActor(Buttons::Save::imagef);
+        main::game.option.entrance_addr = "initialvalue"
     }
 
 #ifdef GT4O_US_BETA
@@ -161,6 +163,27 @@ module PROJECT::ROOT
 
         ROOT.setFocus(fwidget);
         at_home = true;
+        
+        if (main::game.option.entrance_addr != "initialvalue" || main::game.option.entrance_addr != ""){
+            var cars = main::game.option.entrance_addr.split(",")
+            for (var i = 0; i < cars.size; i++){
+                if (searchList(FullCarData::full_carlist, cars[i])){
+                    main::game.garage.addNewCar(cars[i], 0)
+                }
+            }
+        }
+        main::game.option.entrance_addr = ""
+    }
+
+    function searchList(list, search)
+    {   
+        for (var i = 0; i < list.size; i++)
+        {
+            if (list[i] == search){
+                return true;
+            }
+        }
+        return false;
     }
 
     function openCB(context)
