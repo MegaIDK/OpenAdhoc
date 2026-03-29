@@ -88,7 +88,7 @@ function last_strap()
     }
 
     main::game.option.setGameZoneDefault();
-    main::game.money = 100000000;
+    main::game.money = 10000;
 
     init_bgmplaylist();
 }
